@@ -1,0 +1,28 @@
+{% extends "header.html" %} {% block content %}
+
+<div style="display: flex; flex-direction: row; flex-wrap: wrap">
+  {% for card in cards %} {##}
+  <div class="card" style="width: 16rem; margin: 10px">
+    <img src="{{ card.image }}" class="card-img-top" />
+    <div class="card-body">
+      <div style="display: flex; flex-direction: row">
+        <h5 class="card-title">{{ card.concertName }}</h5>
+        <div
+          style="
+            width: 16px;
+            height: 16px;
+            margin-left: 10px;
+            border-radius: 50%;
+          "
+        ></div>
+      </div>
+      <p class="card-text"><strong>Venue: </strong> {{ card.venueName }}</p>
+      <p><strong>Date: </strong>{{ card.date }}</p>
+      <p><strong>Time: </strong>{{ card.time }}</p>
+      <a href="/browse/buy/{{ card.id }}" class="btn btn-primary">Purchase</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

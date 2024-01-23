@@ -1,0 +1,39 @@
+{% extends "header.html" %} {% block content %}
+
+<style>
+  .button1 {
+    background-color: #0084ff;
+    border: none;
+    color: white;
+    padding: 20px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  .button1:hover {
+    background-color: #05d3e2; /* Green */
+    color: #ffffff;
+  }
+</style>
+<div style="padding-inline: 5% 10%">
+  <br />
+
+  {% if msg %}
+  <strong style="color: red">{{msg}}</strong>
+  {% else %}
+  <h1>Concert Creation</h1>
+  <div class="container">
+    <div class="col align-self-center" style="padding-left: 2%">
+      <form action="" method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <input type="submit" value="Create" />
+      </form>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "header.html" %} {% block content %}
+
+<h3><u>My Purchased Tickets</u></h1>
+
+<div style="display: flex; flex-direction: row; flex-wrap: wrap">
+  {% for card in cards %} {##}
+  <div class="card" style="width: 9rem; margin: 4px">
+    <img src="{{ card.image }}" class="card-img-top" />
+    <div class="card-body">
+      <div style="display: flex; flex-direction: row">
+        <h5 class="card-title">{{ card.concertName }}</h5>
+        <div
+          style="
+            width: 12px;
+            height: 12px;
+            margin-left: 5px;
+            border-radius: 50%;
+          "
+        ></div>
+      </div>
+      <p class="card-text"></p>
+      <p><strong>Type: </strong>{{ card.seat_type }}</p>
+      <p><strong>Quantity: </strong>{{ card.quantity}}</p>
+      <p><strong>Purchased at: </strong>${{ card.price}}</p>
+      <a href="/sell" class="btn btn-danger"> Sell Ticket </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
